@@ -10,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Syncopate for Main Site, Michroma for God-Tier Metallic Badging -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Syncopate:wght@400;700;900&family=Michroma&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Syncopate:wght@400;700;900&family=Michroma&family=Playfair+Display:ital,wght@1,600&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -276,69 +278,133 @@
         /* ========================================= */
         /* APEX-TIER FLOATING HUD & VAULT MENU       */
         /* ========================================= */
-        
+
         /* Floating Desktop HUD */
         #main-nav {
-            position: fixed; width: 100%; top: 0; left: 0; z-index: 100;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
+
         .nav-scrolled {
-            top: 15px !important; width: 90% !important; left: 5% !important;
+            top: 15px !important;
+            width: 90% !important;
+            left: 5% !important;
             border-radius: 50px;
             background: rgba(8, 8, 8, 0.85) !important;
             border: 1px solid rgba(255, 255, 255, 0.15) !important;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.9), inset 0 1px 1px rgba(255,255,255,0.3) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.3) !important;
             backdrop-filter: blur(24px) !important;
         }
 
         /* Target-Lock Hover Links */
         .hud-link {
             position: relative;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #8a8a8a;
             transition: color 0.3s ease;
         }
-        .hud-link:hover { color: #ffffff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
-        
+
+        .hud-link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
         .bracket {
-            opacity: 0; font-family: monospace; font-size: 14px; color: #ffffff;
+            opacity: 0;
+            font-family: monospace;
+            font-size: 14px;
+            color: #ffffff;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .bracket-left { transform: translateX(15px); margin-right: 5px; }
-        .bracket-right { transform: translateX(-15px); margin-left: 5px; }
-        
-        .hud-link:hover .bracket-left { opacity: 1; transform: translateX(0); }
-        .hud-link:hover .bracket-right { opacity: 1; transform: translateX(0); }
+
+        .bracket-left {
+            transform: translateX(15px);
+            margin-right: 5px;
+        }
+
+        .bracket-right {
+            transform: translateX(-15px);
+            margin-left: 5px;
+        }
+
+        .hud-link:hover .bracket-left {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .hud-link:hover .bracket-right {
+            opacity: 1;
+            transform: translateX(0);
+        }
 
         /* The Aventador Scissor-Door Mobile Menu */
         #mobile-menu {
-            position: fixed; inset: 0; z-index: 90;
+            position: fixed;
+            inset: 0;
+            z-index: 90;
             pointer-events: none;
-            display: flex; justify-content: center; align-items: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        #mobile-menu.active { pointer-events: all; }
+
+        #mobile-menu.active {
+            pointer-events: all;
+        }
 
         .vault-door {
-            position: absolute; top: 0; width: 50vw; height: 100vh;
+            position: absolute;
+            top: 0;
+            width: 50vw;
+            height: 100vh;
             background: rgba(5, 5, 5, 0.95);
             backdrop-filter: blur(20px);
-            border-right: 1px solid rgba(255,255,255,0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
         }
-        .door-left { left: 0; transform: translateX(-100%) skewX(-5deg); border-right: 2px solid #555; }
-        .door-right { right: 0; transform: translateX(100%) skewX(5deg); border-left: 2px solid #555; }
 
-        #mobile-menu.active .door-left { transform: translateX(0) skewX(0); }
-        #mobile-menu.active .door-right { transform: translateX(0) skewX(0); }
+        .door-left {
+            left: 0;
+            transform: translateX(-100%) skewX(-5deg);
+            border-right: 2px solid #555;
+        }
 
-        .mobile-link-container { opacity: 0; transform: scale(0.8) translateZ(-100px); transition: all 0.5s ease 0.3s; }
-        #mobile-menu.active .mobile-link-container { opacity: 1; transform: scale(1) translateZ(0); }
+        .door-right {
+            right: 0;
+            transform: translateX(100%) skewX(5deg);
+            border-left: 2px solid #555;
+        }
+
+        #mobile-menu.active .door-left {
+            transform: translateX(0) skewX(0);
+        }
+
+        #mobile-menu.active .door-right {
+            transform: translateX(0) skewX(0);
+        }
+
+        .mobile-link-container {
+            opacity: 0;
+            transform: scale(0.8) translateZ(-100px);
+            transition: all 0.5s ease 0.3s;
+        }
+
+        #mobile-menu.active .mobile-link-container {
+            opacity: 1;
+            transform: scale(1) translateZ(0);
+        }
+
         /* ========================================= */
         /* GALAXY-TIER HERO SECTION CSS              */
         /* ========================================= */
-        
+
         .hero-stage {
             perspective: 1500px;
             transform-style: preserve-3d;
@@ -351,49 +417,144 @@
         }
 
         /* Infinite Marquee */
-        .marquee-container { overflow: hidden; white-space: nowrap; width: 100vw; }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100vw;
+        }
+
         .marquee-text {
             display: inline-block;
             font-size: 15vw;
             line-height: 1;
             color: transparent;
-            -webkit-text-stroke: 2px rgba(255,255,255,0.05);
+            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.05);
             animation: marquee 20s linear infinite;
         }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
 
         /* 3D Rotating Pedestal */
         .stage-pedestal {
-            position: absolute; top: 50%; left: 50%;
-            width: 70vw; height: 70vw; max-width: 800px; max-height: 800px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 70vw;
+            height: 70vw;
+            max-width: 800px;
+            max-height: 800px;
             transform: translate(-50%, -40%) rotateX(75deg);
             transform-style: preserve-3d;
         }
-        
+
         .pedestal-ring {
-            position: absolute; inset: 0; border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.1);
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transform-style: preserve-3d;
         }
-        
-        .pr-1 { border: 2px dashed rgba(255,255,255,0.3); animation: spinPedestal 20s linear infinite; box-shadow: 0 0 50px rgba(255,255,255,0.05); }
-        .pr-2 { inset: 5%; border: 1px solid rgba(130, 173, 221, 0.4); animation: spinPedestal 15s linear infinite reverse; box-shadow: inset 0 0 40px rgba(130, 173, 221, 0.1); }
-        .pr-3 { inset: 15%; border: 3px solid #333; animation: spinPedestal 10s linear infinite; }
-        .pr-4 { inset: 40%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); }
 
-        @keyframes spinPedestal { 100% { transform: rotateZ(360deg); } }
+        .pr-1 {
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            animation: spinPedestal 20s linear infinite;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.05);
+        }
+
+        .pr-2 {
+            inset: 5%;
+            border: 1px solid rgba(130, 173, 221, 0.4);
+            animation: spinPedestal 15s linear infinite reverse;
+            box-shadow: inset 0 0 40px rgba(130, 173, 221, 0.1);
+        }
+
+        .pr-3 {
+            inset: 15%;
+            border: 3px solid #333;
+            animation: spinPedestal 10s linear infinite;
+        }
+
+        .pr-4 {
+            inset: 40%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        }
+
+        @keyframes spinPedestal {
+            100% {
+                transform: rotateZ(360deg);
+            }
+        }
 
         /* Floating HUD Nodes */
         .hud-node {
-            background: rgba(10,10,10,0.6);
+            background: rgba(10, 10, 10, 0.6);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 10px 15px;
             position: absolute;
             transform-style: preserve-3d;
         }
+
         .hud-line {
-            position: absolute; background: rgba(255,255,255,0.3);
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ADD TO YOUR EXISTING STYLE TAG */
+
+        .-webkit-text-stroke-1 {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+        }
+
+        .-webkit-text-stroke-white {
+            color: transparent;
+        }
+
+        /* 3D Floating Animation for the Car */
+        .car-float-anim {
+            animation: floatCar 6s ease-in-out infinite;
+        }
+
+        @keyframes floatCar {
+            0% {
+                transform: translateY(0px) translateZ(50px) rotateX(2deg);
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
+            }
+
+            50% {
+                transform: translateY(-15px) translateZ(80px) rotateX(-2deg);
+                box-shadow: 0 50px 80px rgba(255, 255, 255, 0.05);
+            }
+
+            100% {
+                transform: translateY(0px) translateZ(50px) rotateX(2deg);
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
+            }
+        }
+
+        /* Tech Scanner Line Animation */
+        @keyframes scanDrop {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(200%);
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -432,10 +593,12 @@
     <!-- ========================================= -->
     <nav id="main-nav" class="py-5 glass">
         <div class="container mx-auto px-6 lg:px-10 flex justify-between items-center preserve-3d">
-            
+
             <!-- Logo -->
             <a href="#" class="flex items-center group">
-                <div class="w-3 h-3 bg-white rounded-full shadow-[0_0_15px_white] mr-3 group-hover:scale-150 transition-transform duration-500"></div>
+                <div
+                    class="w-3 h-3 bg-white rounded-full shadow-[0_0_15px_white] mr-3 group-hover:scale-150 transition-transform duration-500">
+                </div>
                 <span class="font-display font-black text-2xl tracking-[0.2em] text-white">
                     M<span class="metallic-text">CORE</span>
                 </span>
@@ -459,13 +622,17 @@
 
             <!-- CTA & Mobile Toggle -->
             <div class="flex items-center space-x-6">
-                <a href="#contact" class="hidden lg:flex relative items-center justify-center border border-gray-600 text-white px-8 py-3 font-metal text-[10px] tracking-widest hover:border-white transition duration-500 group magnetic-btn overflow-hidden rounded-full bg-black/50">
+                <a href="#contact"
+                    class="hidden lg:flex relative items-center justify-center border border-gray-600 text-white px-8 py-3 font-metal text-[10px] tracking-widest hover:border-white transition duration-500 group magnetic-btn overflow-hidden rounded-full bg-black/50">
                     <span class="relative z-10 group-hover:text-black transition-colors duration-300">IGNITE</span>
-                    <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
+                    <div
+                        class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0">
+                    </div>
                 </a>
-                
+
                 <!-- High-Speed Mobile Toggle -->
-                <button id="mobile-toggle" class="lg:hidden w-12 h-12 flex items-center justify-center rounded-full border border-gray-600 text-white focus:outline-none z-[100] relative bg-black/50 backdrop-blur-md">
+                <button id="mobile-toggle"
+                    class="lg:hidden w-12 h-12 flex items-center justify-center rounded-full border border-gray-600 text-white focus:outline-none z-[100] relative bg-black/50 backdrop-blur-md">
                     <i class="fas fa-bars text-xl transition-transform duration-300" id="toggle-icon"></i>
                 </button>
             </div>
@@ -477,57 +644,125 @@
         <!-- Physical Doors -->
         <div class="vault-door door-left"></div>
         <div class="vault-door door-right"></div>
-        
+
         <!-- Link Core -->
-        <div class="relative z-50 flex flex-col items-center space-y-8 preserve-3d mobile-link-container w-full px-6 text-center">
-            <a href="#models" class="mobile-link font-display text-3xl sm:text-4xl font-black tracking-widest text-transparent text-outline hover:text-white transition-colors block w-full border-b border-gray-800 pb-4">FLEET</a>
-            <a href="#details" class="mobile-link font-display text-3xl sm:text-4xl font-black tracking-widest text-transparent text-outline hover:text-white transition-colors block w-full border-b border-gray-800 pb-4">TELEMETRY</a>
-            <a href="#history" class="mobile-link font-display text-3xl sm:text-4xl font-black tracking-widest text-transparent text-outline hover:text-white transition-colors block w-full border-b border-gray-800 pb-4">ORIGINS</a>
-            <a href="#archive" class="mobile-link font-display text-3xl sm:text-4xl font-black tracking-widest text-transparent text-outline hover:text-white transition-colors block w-full border-b border-gray-800 pb-4">ARCHIVE</a>
-            <a href="#contact" class="mobile-link metallic-text font-metal text-xl sm:text-2xl font-bold tracking-[0.4em] block mt-8 pt-4 w-full">IGNITE SEQUENCE</a>
+        <div
+            class="relative z-50 flex flex-col items-center space-y-8 preserve-3d mobile-link-container w-full px-6 text-center">
+            <a href="#models"
+                class="mobile-link font-display text-3xl sm:text-4xl font-black tracking-widest text-transparent text-outline hover:text-white transition-colors block w-full border-b border-gray-800 pb-4">FLEET</a>
+            <a href="#details"
+                class="mobile-link font-display text-3xl sm:text-4xl font-black tracking-widest text-transparent text-outline hover:text-white transition-colors block w-full border-b border-gray-800 pb-4">TELEMETRY</a>
+            <a href="#history"
+                class="mobile-link font-display text-3xl sm:text-4xl font-black tracking-widest text-transparent text-outline hover:text-white transition-colors block w-full border-b border-gray-800 pb-4">ORIGINS</a>
+            <a href="#archive"
+                class="mobile-link font-display text-3xl sm:text-4xl font-black tracking-widest text-transparent text-outline hover:text-white transition-colors block w-full border-b border-gray-800 pb-4">ARCHIVE</a>
+            <a href="#contact"
+                class="mobile-link metallic-text font-metal text-xl sm:text-2xl font-bold tracking-[0.4em] block mt-8 pt-4 w-full">IGNITE
+                SEQUENCE</a>
         </div>
     </div>
 
-    <!-- 1. HERO SECTION -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-20 preserve-3d">
-        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative">
-            <div class="z-10 preserve-3d hero-content">
-                <h2 class="text-gray-400 font-bold tracking-[0.3em] uppercase mb-4 pop-out font-metal text-sm">
-                    Engineering Perfection</h2>
-                <h1
-                    class="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-none mb-6 pop-out-text shadow-black drop-shadow-2xl uppercase">
-                    METALLIC<br><span class="metallic-text">SUPREMACY</span>
-                </h1>
-                <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-lg pop-out font-light leading-relaxed">Precision
-                    forged in darkness. The pinnacle of automotive engineering, wrapped in lustrous chrome and absolute
-                    power.</p>
-                <div class="flex gap-4 pop-out font-metal text-xs tracking-widest">
-                    <a href="#models"
-                        class="bg-white text-black px-8 py-4 uppercase rounded-sm hover:bg-gray-300 transition-all shadow-[0_0_30px_rgba(255,255,255,0.3)]">Explore
-                        Fleet</a>
-                    <a href="#about"
-                        class="border border-gray-600 text-white px-8 py-4 uppercase rounded-sm hover:border-white transition-all">The
-                        Legacy</a>
-                </div>
-            </div>
-            <div class="relative preserve-3d hero-image-container">
-                <!-- 3D floating image -->
-                <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2070&auto=format&fit=crop"
-                    alt="Silver Car"
-                    class="rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.8)] object-cover h-[600px] w-full pop-out clip-slant grayscale contrast-125 brightness-90">
-                <!-- Floating Glass Card -->
-                <div
-                    class="absolute -bottom-10 -left-10 glass p-6 rounded-lg pop-out-text w-72 border-t border-t-gray-400">
-                    <h3 class="font-metal font-bold text-lg mb-2 text-white tracking-widest">G80 PLATFORM</h3>
-                    <p class="text-xs text-gray-400 leading-relaxed">Raw twin-turbocharged inline-six architecture
-                        wrapped in aggressive aero.</p>
-                </div>
+    <!-- 1. HERO SECTION (APEX-TIER REDESIGN) -->
+    <section id="home"
+        class="relative min-h-[100svh] w-full flex items-center justify-center pt-20 overflow-hidden hero-stage border-b border-gray-900">
+
+        <!-- THE CAR BACKGROUND (Absolute, z-0, Black & White, Darkened) -->
+        <div class="absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2070&auto=format&fit=crop"
+                alt="Silver Car"
+                class="w-full h-full object-cover grayscale contrast-[1.5] brightness-[0.4] hero-bg-img scale-110 origin-center">
+
+            <!-- Vignette shadow overlays to blend edges into the black theme -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505] opacity-90"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-[#050505] opacity-80"></div>
+        </div>
+
+        <!-- Deep Background Infinite Marquee (z-1) -->
+        <div class="absolute inset-0 flex flex-col justify-center opacity-[0.03] pointer-events-none z-[1] mt-20">
+            <div class="marquee-container transform -rotate-6 scale-110">
+                <span class="marquee-text font-display font-black text-white">METALLIC /// G80 /// SUPREMACY /// M-CORE
+                    ///</span>
+                <span class="marquee-text font-display font-black text-white">METALLIC /// G80 /// SUPREMACY /// M-CORE
+                    ///</span>
             </div>
         </div>
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-            <span class="text-[10px] tracking-[0.3em] mb-2 text-gray-500 font-metal">DESCEND</span>
-            <div class="w-[1px] h-8 bg-gradient-to-b from-gray-400 to-transparent"></div>
+
+        <!-- Main Content Container (z-10, safely above background) -->
+        <div
+            class="container mx-auto px-4 relative z-10 w-full h-full flex flex-col items-center justify-center preserve-3d">
+
+            <!-- Massive Typography Container -->
+            <div class="relative w-full flex justify-center items-center preserve-3d mt-10 lg:mt-0">
+
+                <!-- Center Typography -->
+                <h1
+                    class="font-display text-[14vw] sm:text-[12vw] lg:text-[10vw] font-black text-center leading-[0.85] text-white hero-title-anim pop-out-text drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)]">
+                    M<span class="text-transparent -webkit-text-stroke-1 -webkit-text-stroke-white">ETAL</span><br>
+                    <span class="metallic-text drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">C<span
+                            class="text-white">O</span>RE</span>
+                </h1>
+
+                <!-- Floating HUD Node 1 -->
+                <div class="absolute left-0 lg:left-10 top-0 hud-node z-40 hidden md:block" data-depth="40">
+                    <div
+                        class="w-2 h-2 bg-white rounded-full animate-pulse absolute -right-1 -top-1 shadow-[0_0_10px_white]">
+                    </div>
+                    <p class="font-metal text-[9px] text-gray-400 tracking-[0.3em] uppercase mb-1">Status</p>
+                    <p class="font-display text-lg font-bold text-white">SYSTEM // <span
+                            class="metallic-text animate-pulse">LIVE</span></p>
+                    <div class="w-full h-[1px] bg-gradient-to-r from-white to-transparent mt-2"></div>
+                </div>
+
+                <!-- Floating HUD Node 2 -->
+                <div class="absolute right-0 lg:right-10 bottom-0 hud-node z-40 hidden md:block" data-depth="60">
+                    <div class="w-2 h-2 bg-gray-500 rounded-full absolute -left-1 -bottom-1"></div>
+                    <p class="font-metal text-[9px] text-gray-400 tracking-[0.3em] uppercase mb-1">Telemetry</p>
+                    <p class="font-display text-xl font-black text-white">503<span
+                            class="text-xs text-gray-500 font-metal ml-1">HP</span></p>
+                    <div class="w-full h-[1px] bg-gradient-to-l from-white to-transparent mt-2"></div>
+                </div>
+            </div>
+
+            <!-- Mobile-Friendly Specs Row -->
+            <div class="w-full grid grid-cols-2 gap-4 mt-12 md:hidden z-30">
+                <div class="glass p-4 rounded-sm border-l-2 border-l-white">
+                    <p class="font-metal text-[8px] text-gray-400 tracking-[0.3em] uppercase mb-1">Status</p>
+                    <p class="font-display text-sm font-bold text-white">SYS // LIVE</p>
+                </div>
+                <div class="glass p-4 rounded-sm border-r-2 border-r-white text-right">
+                    <p class="font-metal text-[8px] text-gray-400 tracking-[0.3em] uppercase mb-1">Output</p>
+                    <p class="font-display text-sm font-bold text-white">503 HP</p>
+                </div>
+            </div>
+
+            <!-- Call to Actions -->
+            <div class="mt-16 flex flex-col sm:flex-row gap-6 z-30 hero-cta-anim preserve-3d">
+                <a href="#models"
+                    class="relative group bg-white text-black px-10 py-4 font-metal text-[10px] sm:text-xs font-bold tracking-[0.4em] uppercase overflow-hidden hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] transition-all duration-500">
+                    <span class="relative z-10">Engage Drive</span>
+                    <div
+                        class="absolute inset-0 w-0 bg-gray-300 transition-all duration-500 ease-out group-hover:w-full z-0">
+                    </div>
+                </a>
+                <a href="#details"
+                    class="relative group border border-gray-700 text-white px-10 py-4 font-metal text-[10px] sm:text-xs font-bold tracking-[0.4em] uppercase overflow-hidden hover:border-white transition-all duration-500 bg-black/50 backdrop-blur-md">
+                    <span class="relative z-10 group-hover:text-black transition-colors duration-500">Access Data</span>
+                    <div
+                        class="absolute inset-0 w-full h-0 bg-white transition-all duration-500 ease-out group-hover:h-full z-0 bottom-0 top-auto">
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Tech Scroll Indicator -->
+        <div
+            class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-30 mix-blend-difference">
+            <div class="w-[1px] h-12 bg-gray-600 relative overflow-hidden mb-2">
+                <div class="absolute top-0 left-0 w-full h-1/2 bg-white animate-[scanDrop_2s_ease-in-out_infinite]">
+                </div>
+            </div>
+            <span class="text-[8px] tracking-[0.5em] text-gray-400 font-metal uppercase font-bold">Descend</span>
         </div>
     </section>
 
@@ -677,7 +912,8 @@
     <section id="gallery" class="py-32 bg-[#020202]">
         <div class="container mx-auto">
             <h2 class="font-display text-4xl md:text-5xl font-black mb-16 text-center scroll-anim uppercase">Visual
-                <span class="metallic-text">Telemetry</span></h2>
+                <span class="metallic-text">Telemetry</span>
+            </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-2 h-[800px] preserve-3d">
                 <div
@@ -709,7 +945,8 @@
     <section id="contact" class="py-32 relative preserve-3d border-t border-gray-900 bg-[#050505]">
         <div class="container mx-auto max-w-3xl text-center">
             <h2 class="font-display text-5xl md:text-6xl font-black mb-6 scroll-anim uppercase text-outline">Initiate
-                <span class="text-white drop-shadow-[0_0_20px_white]">Contact</span></h2>
+                <span class="text-white drop-shadow-[0_0_20px_white]">Contact</span>
+            </h2>
             <p class="text-gray-500 mb-16 scroll-anim font-metal text-xs tracking-widest">ESTABLISH SECURE CONNECTION
             </p>
 
@@ -860,10 +1097,12 @@
             const strings = ["ALLOCATING POWER", "SYNCHRONIZING ORBITS", "LIQUEFYING METAL", "QUANTUM DRIVE READY"];
             let strIdx = 0;
 
+            // Reduce loader to ~1 second
             const interval = setInterval(() => {
-                progress += 2;
+                progress += 10; // Jump by 10% per tick
                 if (progress % 25 === 0 && strIdx < strings.length - 1) strIdx++;
 
+                if (progress > 100) progress = 100;
                 progressEl.innerText = `${progress}% // ${strings[strIdx]}`;
 
                 if (progress >= 100) {
@@ -881,20 +1120,28 @@
                             document.body.style.overflow = 'auto';
                             document.body.style.overflowX = 'hidden';
                         })
-                        // Site Reveal
+                        // NEW SUPERIOR SITE REVEAL
                         .fromTo("nav", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" })
-                        .fromTo(".hero-content > *",
-                            { y: 50, opacity: 0, rotateX: -20, transformPerspective: 1000 },
-                            { y: 0, opacity: 1, rotateX: 0, duration: 1.2, stagger: 0.1, ease: "expo.out" },
-                            "-=0.8"
-                        )
-                        .fromTo(".hero-image-container",
-                            { scale: 0.8, filter: "blur(20px)", opacity: 0 },
-                            { scale: 1, filter: "blur(0px)", opacity: 1, duration: 2, ease: "power3.out" },
-                            "-=1.2"
-                        );
+                        .fromTo(".marquee-container",
+                            { opacity: 0, scale: 1.5, rotate: 0 },
+                            { opacity: 1, scale: 1.1, rotate: -6, duration: 2, ease: "power3.out" }, "-=1")
+                        .fromTo(".stage-pedestal",
+                            { opacity: 0, rotateX: 90, scale: 0.5 },
+                            { opacity: 1, rotateX: 75, scale: 1, duration: 2, ease: "power4.out" }, "-=1.5")
+                        .fromTo(".hero-car-container img",
+                            { y: 100, scale: 0.8, filter: "blur(20px)", opacity: 0 },
+                            { y: 0, scale: 1, filter: "blur(0px)", opacity: 1, duration: 2, ease: "expo.out" }, "-=1.5")
+                        .fromTo(".hero-title-anim",
+                            { z: -200, opacity: 0, letterSpacing: "-0.2em", filter: "blur(10px)" },
+                            { z: 0, opacity: 1, letterSpacing: "normal", filter: "blur(0px)", duration: 1.5, ease: "back.out(1.2)" }, "-=2.5")
+                        .fromTo(".hud-node, .glass",
+                            { x: (i) => i % 2 === 0 ? -50 : 50, opacity: 0 },
+                            { x: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }, "-=2.4")
+                        .fromTo(".hero-cta-anim > *",
+                            { y: 30, opacity: 0 },
+                            { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power3.out" }, "-=2.4");
                 }
-            }, 50);
+            }, 100); // 100ms interval, 10 steps = ~1s
         });
 
         // ==========================================
@@ -925,7 +1172,7 @@
         // ==========================================
 
         const nav = document.getElementById('main-nav');
-        
+
         // Zero-lag Scroll Listener using RequestAnimationFrame
         let lastScrollY = window.scrollY;
         let ticking = false;
@@ -952,8 +1199,8 @@
         // Fast Magnetic Hover (Uses GSAP QuickTo for 0 lag)
         const magneticBtns = document.querySelectorAll('.magnetic-btn');
         magneticBtns.forEach(btn => {
-            const xTo = gsap.quickTo(btn, "x", {duration: 0.4, ease: "power3"}, {lazy: false});
-            const yTo = gsap.quickTo(btn, "y", {duration: 0.4, ease: "power3"}, {lazy: false});
+            const xTo = gsap.quickTo(btn, "x", { duration: 0.4, ease: "power3" }, { lazy: false });
+            const yTo = gsap.quickTo(btn, "y", { duration: 0.4, ease: "power3" }, { lazy: false });
 
             btn.addEventListener('mousemove', (e) => {
                 const rect = btn.getBoundingClientRect();
@@ -983,10 +1230,10 @@
                 toggleIcon.classList.add('fa-times', 'text-red-500');
                 toggleIcon.style.transform = 'rotate(90deg)';
                 document.body.style.overflow = 'hidden'; // Lock scroll
-                
+
                 // Blast links at camera
-                gsap.fromTo(mobileLinks, 
-                    { y: 50, z: -200, opacity: 0 }, 
+                gsap.fromTo(mobileLinks,
+                    { y: 50, z: -200, opacity: 0 },
                     { y: 0, z: 0, opacity: 1, duration: 0.6, stagger: 0.05, ease: "back.out(1.5)", delay: 0.4 }
                 );
             } else {
@@ -1012,6 +1259,51 @@
             const x = (e.clientX / window.innerWidth - 0.5) * 30;
             const y = (e.clientY / window.innerHeight - 0.5) * 30;
             gsap.to(".hero-image-container", { rotateY: x, rotateX: -y, duration: 1.5, ease: "power3.out" });
+        });
+        // ==========================================
+        // 5. APEX-TIER HERO PARALLAX
+        // ==========================================
+
+        // Advanced Mouse Parallax (Updated to target new depth elements)
+        document.addEventListener("mousemove", (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+            // Move the car slightly
+            gsap.to(".hero-car-container", { rotateY: x, rotateX: -y, duration: 1.5, ease: "power3.out" });
+
+            // Move the background rings opposite direction
+            gsap.to(".stage-pedestal", { rotateY: -x * 2, rotateX: 75 + (y * 2), duration: 2, ease: "power3.out" });
+
+            // Move HUD nodes with intense Z-depth
+            document.querySelectorAll('.hud-node').forEach(node => {
+                const depth = node.getAttribute('data-depth') || 20;
+                gsap.to(node, { x: x * (depth / 10), y: y * (depth / 10), duration: 1, ease: "power2.out" });
+            });
+        });
+
+        // Scroll Parallax for Hero
+        gsap.to(".hero-car-container", {
+            yPercent: 30,
+            scale: 0.9,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#home",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        gsap.to(".hero-title-anim", {
+            yPercent: -50,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#home",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
         });
     </script>
 </body>
