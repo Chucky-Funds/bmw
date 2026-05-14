@@ -143,109 +143,198 @@
             }
         }
 
-        /* The 3D Hyper-Core */
-        .hyper-core {
+        /* ========================================= */
+        /* 3D METALLIC BMW LOGO LOADER               */
+        /* ========================================= */
+
+        .bmw-logo-container {
             position: relative;
-            width: 250px;
-            height: 250px;
+            width: 120px;
+            height: 120px;
+            perspective: 1200px;
             transform-style: preserve-3d;
-            animation: coreRotate 12s linear infinite;
+            z-index: 10;
         }
 
-        @keyframes coreRotate {
-            0% {
-                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-            }
-
-            100% {
-                transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg);
+        @media (min-width: 768px) {
+            .bmw-logo-container {
+                width: 180px;
+                height: 180px;
             }
         }
 
-        /* Intersecting Chrome Rings */
-        .core-ring {
+        /* Outer Base of Logo */
+        .bmw-logo-3d {
             position: absolute;
             inset: 0;
             border-radius: 50%;
-            border: 2px solid transparent;
-            border-top: 4px solid #ffffff;
-            border-bottom: 4px solid #555555;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(100, 100, 100, 0.5);
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0) 60%);
+            background: #050505;
+            /* Black Ring */
+            transform-style: preserve-3d;
+            border: 4px solid #b0b0b0;
+            /* Silver Edge */
+            box-shadow:
+                0 0 30px rgba(255, 255, 255, 0.3),
+                inset 0 0 15px rgba(255, 255, 255, 0.4),
+                0 15px 35px rgba(0, 0, 0, 0.9);
+            animation: flipLogo 3.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+        }
+
+        /* Inner Quadrants */
+        .bmw-inner {
+            position: absolute;
+            inset: 24%;
+            /* Leaves room for the black ring */
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #8a8a8a;
+            display: flex;
+            flex-wrap: wrap;
+            transform: translateZ(5px);
+            /* Pops the center out in 3D */
+            background: #000;
+        }
+
+        /* Black & White Grid (Replaces Blue & White) */
+        .quad {
+            width: 50%;
+            height: 50%;
+        }
+
+        .quad.tl,
+        .quad.br {
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+        }
+
+        .quad.tr,
+        .quad.bl {
+            background: linear-gradient(135deg, #222222 0%, #000000 100%);
+        }
+
+        /* Letters */
+        .bmw-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            transform: translateZ(3px);
+        }
+
+        .bmw-letter {
+            position: absolute;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        @media (min-width: 768px) {
+            .bmw-letter {
+                font-size: 22px;
+            }
+        }
+
+        .bmw-letter.b {
+            top: 12%;
+            left: 18%;
+            transform: rotate(-45deg);
+        }
+
+        .bmw-letter.m {
+            top: 4%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .bmw-letter.w {
+            top: 12%;
+            right: 18%;
+            transform: rotate(45deg);
+        }
+
+        /* Metallic Glare */
+        .logo-glare {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.2) 100%);
+            transform: translateZ(6px);
+            pointer-events: none;
+        }
+
+        @keyframes flipLogo {
+            0% {
+                transform: rotateY(0deg) rotateX(15deg);
+            }
+
+            50% {
+                transform: rotateY(180deg) rotateX(-15deg);
+                box-shadow: 0 0 60px rgba(255, 255, 255, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.8);
+            }
+
+            100% {
+                transform: rotateY(360deg) rotateX(15deg);
+            }
+        }
+
+        /* Orbiting HUD Rings */
+        .tech-ring {
+            position: absolute;
+            top: -30%;
+            left: -30%;
+            right: -30%;
+            bottom: -30%;
+            border-radius: 50%;
+            border: 1px solid transparent;
             transform-style: preserve-3d;
         }
 
-        /* Positioning the rings on different 3D axes */
-        .core-ring:nth-child(1) {
-            transform: rotateX(75deg) rotateY(45deg);
-            animation: pulseRing 2s ease-in-out infinite alternate;
+        .tr-1 {
+            border-top: 2px solid #ffffff;
+            border-bottom: 2px solid #555555;
+            animation: spinRingX 2.5s linear infinite;
         }
 
-        .core-ring:nth-child(2) {
-            transform: rotateX(-75deg) rotateY(-45deg);
-            animation: pulseRing 2.5s ease-in-out infinite alternate-reverse;
+        .tr-2 {
+            border-left: 2px solid #a0a0a0;
+            border-right: 2px solid #222222;
+            animation: spinRingY 3.5s linear infinite;
         }
 
-        .core-ring:nth-child(3) {
-            transform: rotateX(45deg) rotateY(75deg);
-            animation: pulseRing 3s ease-in-out infinite alternate;
+        .tr-3 {
+            inset: -50%;
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+            animation: spinRingZ 10s linear infinite reverse;
         }
 
-        .core-ring:nth-child(4) {
-            transform: rotateX(-45deg) rotateY(-75deg);
-            animation: pulseRing 3.5s ease-in-out infinite alternate-reverse;
-        }
-
-        @keyframes pulseRing {
+        @keyframes spinRingX {
             0% {
-                border-top-color: #ffffff;
-                box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), inset 0 0 20px rgba(200, 200, 200, 0.8);
-                scale: 0.95;
+                transform: rotateX(70deg) rotateZ(0deg);
             }
 
             100% {
-                border-top-color: #444444;
-                box-shadow: 0 0 5px rgba(100, 100, 100, 0.2), inset 0 0 5px rgba(50, 50, 50, 0.5);
-                scale: 1.05;
+                transform: rotateX(70deg) rotateZ(360deg);
             }
         }
 
-        /* The Liquid Metal Orb in the center */
-        .liquid-orb {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #ffffff 0%, #b0b0b0 20%, #4a4a4a 60%, #111111 100%);
-            box-shadow: 0 0 50px rgba(255, 255, 255, 0.4), inset -10px -10px 20px rgba(0, 0, 0, 0.9);
-            animation: orbMorph 3s infinite alternate ease-in-out;
-        }
-
-        /* Morphing shape to look like liquid shifting */
-        @keyframes orbMorph {
+        @keyframes spinRingY {
             0% {
-                transform: translate(-50%, -50%) scale(1);
-                border-radius: 50%;
-                box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-            }
-
-            33% {
-                transform: translate(-50%, -50%) scale(1.1);
-                border-radius: 40% 60% 55% 45%;
-            }
-
-            66% {
-                transform: translate(-50%, -50%) scale(0.95);
-                border-radius: 60% 40% 45% 55%;
+                transform: rotateY(70deg) rotateX(30deg) rotateZ(0deg);
             }
 
             100% {
-                transform: translate(-50%, -50%) scale(1.2);
-                border-radius: 50% 50% 40% 60%;
-                box-shadow: 0 0 80px rgba(255, 255, 255, 0.7);
+                transform: rotateY(70deg) rotateX(30deg) rotateZ(-360deg);
+            }
+        }
+
+        @keyframes spinRingZ {
+            0% {
+                transform: rotateZ(0deg);
+            }
+
+            100% {
+                transform: rotateZ(360deg);
             }
         }
 
@@ -567,24 +656,43 @@
     <!-- ========================================= -->
     <!-- GOD-TIER METALLIC LOADER                  -->
     <!-- ========================================= -->
+    <!-- ========================================= -->
+    <!-- GOD-TIER METALLIC BMW LOADER              -->
+    <!-- ========================================= -->
     <div id="loader">
         <div class="loader-grid"></div>
 
-        <!-- Complex CSS 3D Geometry -->
-        <div class="hyper-core" id="engine-core">
-            <div class="core-ring"></div>
-            <div class="core-ring"></div>
-            <div class="core-ring"></div>
-            <div class="core-ring"></div>
-            <div class="liquid-orb" id="liquid-orb"></div>
+        <!-- 3D Metallic BMW Logo Container -->
+        <div class="bmw-logo-container" id="engine-core">
+            <div class="bmw-logo-3d">
+                <div class="bmw-ring">
+                    <span class="bmw-letter b">B</span>
+                    <span class="bmw-letter m">M</span>
+                    <span class="bmw-letter w">W</span>
+                </div>
+                <div class="bmw-inner">
+                    <div class="quad tl"></div>
+                    <div class="quad tr"></div>
+                    <div class="quad bl"></div>
+                    <div class="quad br"></div>
+                </div>
+                <!-- 3D Glare Overlay -->
+                <div class="logo-glare"></div>
+            </div>
+            <!-- Orbiting Tech Rings -->
+            <div class="tech-ring tr-1"></div>
+            <div class="tech-ring tr-2"></div>
+            <div class="tech-ring tr-3"></div>
         </div>
 
         <!-- Typography -->
-        <h1 class="metallic-text font-metal mt-20 text-3xl md:text-5xl font-black tracking-[0.5em] uppercase z-10">
-            IGNITING CORE
+        <h1
+            class="metallic-text font-metal mt-16 md:mt-24 text-2xl md:text-5xl font-black tracking-[0.4em] md:tracking-[0.5em] uppercase z-10 text-center px-4">
+            M<span class="text-white">-</span>CORE
         </h1>
-        <div id="loading-progress" class="mt-4 text-gray-500 tracking-[0.6em] text-xs font-bold uppercase z-10">
-            0% // ALLOCATING POWER
+        <div id="loading-progress"
+            class="mt-4 text-gray-500 tracking-[0.4em] md:tracking-[0.6em] text-[9px] md:text-xs font-bold uppercase z-10 text-center px-4">
+            0% // INITIATING SEQUENCE
         </div>
     </div>
 
@@ -668,9 +776,10 @@
 
         <!-- THE CAR BACKGROUND (Absolute, z-0, Black & White, Darkened) -->
         <div class="absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2070&auto=format&fit=crop"
-                alt="Silver Car"
-                class="w-full h-full  object-cover grayscale contrast-[1.5] brightness-[0.4] hero-bg-img scale-110 origin-center">
+            <video id="hero-bg-video" autoplay loop muted playsinline preload="metadata" aria-label="blueprint"
+                aria-description="blueprint"
+                class="w-full h-full object-cover grayscale contrast-[1.5] brightness-[0.4] hero-bg-img scale-110 origin-center"
+                style="object-fit: cover; filter: grayscale(100%) contrast(1.5) brightness(0.4);"></video>
 
             <!-- Vignette shadow overlays to blend edges into the black theme -->
             <div class="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505] opacity-90"></div>
@@ -985,6 +1094,40 @@
                     class="w-full bg-white text-black font-metal text-xs py-5 rounded-sm uppercase tracking-[0.3em] hover:bg-gray-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition duration-500 pop-out font-bold">Transmit
                     Signal</button>
             </form>
+            <!-- Secure Comms / Social Media -->
+            <div class="mt-16 text-center scroll-anim preserve-3d">
+                <div class="flex items-center justify-center space-x-4 mb-8">
+                    <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-gray-700"></div>
+                    <h3 class="text-gray-500 font-metal text-[10px] tracking-[0.4em] uppercase">Secure Comms</h3>
+                    <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-gray-700"></div>
+                </div>
+                
+                <div class="flex justify-center items-center space-x-4 sm:space-x-8 pop-out">
+                    <!-- X (Twitter) -->
+                    <a href="#" class="w-12 h-12 flex items-center justify-center border border-gray-800 rounded-sm text-gray-500 hover:text-white hover:border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-500 group bg-[#080808] relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0 opacity-10"></div>
+                        <i class="fa-brands fa-facebook text-lg group-hover:scale-110 transition-transform duration-500 relative z-10"></i>
+                    </a>
+                    
+                    <!-- Instagram -->
+                    <a href="#" class="w-12 h-12 flex items-center justify-center border border-gray-800 rounded-sm text-gray-500 hover:text-white hover:border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-500 group bg-[#080808] relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0 opacity-10"></div>
+                        <i class="fa-brands fa-instagram text-xl group-hover:scale-110 transition-transform duration-500 relative z-10"></i>
+                    </a>
+                    
+                    <!-- YouTube -->
+                    <a href="#" class="w-12 h-12 flex items-center justify-center border border-gray-800 rounded-sm text-gray-500 hover:text-white hover:border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-500 group bg-[#080808] relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0 opacity-10"></div>
+                        <i class="fa-brands fa-youtube text-xl group-hover:scale-110 transition-transform duration-500 relative z-10"></i>
+                    </a>
+                    
+                    <!-- LinkedIn -->
+                    <a href="#" class="w-12 h-12 flex items-center justify-center border border-gray-800 rounded-sm text-gray-500 hover:text-white hover:border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-500 group bg-[#080808] relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0 opacity-10"></div>
+                        <i class="fa-brands fa-linkedin-in text-xl group-hover:scale-110 transition-transform duration-500 relative z-10"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -999,7 +1142,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <!-- hls.js for HLS video playback -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        // HERO SECTION HLS VIDEO INIT
+        document.addEventListener('DOMContentLoaded', function () {
+            var video = document.getElementById('hero-bg-video');
+            var videoSrc = 'https://bmw.scene7.com/is/content/BMW/x7-home-stage-video-desktop-AVS.m3u8';
+            if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = videoSrc;
+            } else if (window.Hls) {
+                var hls = new Hls();
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+            }
+            // Ensure autoplay on load
+            video.muted = true;
+            video.play();
+        });
 
+        // Unmute and play with sound after first user interaction
+        function enableSound() {
+            var video = document.getElementById('hero-bg-video');
+            video.muted = false;
+            video.volume = 1.0;
+            video.play();
+            document.removeEventListener('click', enableSound);
+            document.removeEventListener('touchstart', enableSound);
+        }
+        document.addEventListener('click', enableSound);
+        document.addEventListener('touchstart', enableSound);
+    </script>
     <script>
         // ==========================================
         // 1. GOD-TIER METALLIC 3D BACKGROUND
@@ -1111,8 +1284,9 @@
                     const tl = gsap.timeline();
 
                     // The Supernova Animation
-                    tl.to("#liquid-orb", { scale: 50, opacity: 0, duration: 1.5, ease: "power4.in" })
-                        .to(".core-ring", { scale: 10, opacity: 0, stagger: 0.1, duration: 1, ease: "power3.in" }, "-=1.2")
+                    // The Supernova Animation
+                    tl.to(".bmw-logo-3d", { scale: 15, rotateY: 720, opacity: 0, duration: 1.5, ease: "power4.in" })
+                        .to(".tech-ring", { scale: 8, opacity: 0, stagger: 0.1, duration: 1, ease: "power3.in" }, "-=1.2")
                         .to("#loader h1, #loading-progress", { y: -50, opacity: 0, duration: 0.5, letterSpacing: "1em" }, "-=1.5")
                         .to("#loader", { opacity: 0, duration: 0.5 }, "-=0.2")
                         .add(() => {
@@ -1133,13 +1307,13 @@
                             { y: 0, scale: 1, filter: "blur(0px)", opacity: 1, duration: 2, ease: "expo.out" }, "-=1.5")
                         .fromTo(".hero-title-anim",
                             { z: -200, opacity: 0, letterSpacing: "-0.2em", filter: "blur(10px)" },
-                            { z: 0, opacity: 1, letterSpacing: "normal", filter: "blur(0px)", duration: 1.5, ease: "back.out(1.2)" }, "-=2.5")
+                            { z: 0, opacity: 1, letterSpacing: "normal", filter: "blur(0px)", duration: 1.5, ease: "back.out(1.2)" }, "-=2.8")
                         .fromTo(".hud-node, .glass",
                             { x: (i) => i % 2 === 0 ? -50 : 50, opacity: 0 },
-                            { x: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }, "-=2.4")
+                            { x: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }, "-=2.7")
                         .fromTo(".hero-cta-anim > *",
                             { y: 30, opacity: 0 },
-                            { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power3.out" }, "-=2.4");
+                            { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power3.out" }, "-=2.7");
                 }
             }, 100); // 100ms interval, 10 steps = ~1s
         });
